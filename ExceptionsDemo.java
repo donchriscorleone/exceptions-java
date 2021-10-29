@@ -7,6 +7,7 @@ package exceptions;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,8 +19,11 @@ public class ExceptionsDemo {
     public static void show() {
         try {
             FileReader reader = new FileReader("text.txt");
+            int val = reader.read();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(ExceptionsDemo.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
         }
     }
 }
