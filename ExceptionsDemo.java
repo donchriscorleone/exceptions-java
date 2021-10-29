@@ -20,15 +20,12 @@ import java.util.logging.Logger;
 public class ExceptionsDemo {
     public static void show() {
         try {
-                        new SimpleDateFormat().parse("");
-
             FileReader reader = new FileReader("text.txt");
             int val = reader.read();
-        } catch (FileNotFoundException ex) {
+            new SimpleDateFormat().parse("");
+        } catch (FileNotFoundException | ParseException ex) {
             System.out.println(ex.getMessage());
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        } catch (ParseException ex) {
             System.out.println(ex.getMessage());
         }
     }
